@@ -58,7 +58,7 @@ func CreateTokenJSONText() (jsonText string, err error) {
 }
 
 func CreateTokenFile(jsonText string) {
-	tokenFilePath := ".appcfg_oauth2_tokens_java"
+	tokenFilePath := os.Getenv("HOME") + "/.appcfg_oauth2_tokens_java"
 	text := []byte(jsonText + "\n")
 	err := ioutil.WriteFile(tokenFilePath, text, 0660)
 	if err != nil {
